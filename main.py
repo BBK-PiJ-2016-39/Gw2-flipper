@@ -1,7 +1,4 @@
-1
 from functions import *
-#import functions.py
-
 
 init()
 
