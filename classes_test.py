@@ -51,7 +51,7 @@ def get_item_tree(self):
 
 init()
 "This would create first object of Employee class"
-emp1 = Item('28445')
+emp1 = Item('2845')
 "This would create second object of Employee class"
 #emp2 = Employee('5')
 emp1.display_item()
