@@ -29,7 +29,7 @@ class Item:
                 else:
                     setattr(self, prop, None)
 
-            Item.Count = 1
+            Item.Count += 1
         except Exception:
             print 'Error'
 

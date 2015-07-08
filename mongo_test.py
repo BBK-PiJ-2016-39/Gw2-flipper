@@ -18,28 +18,28 @@ test_record = {}
 flag = True
 
 # loop for data input
+bulk_test = db.initialize_unordered_bulk_op()
+
 while (flag):
-   # ask for input
-   test_name,test_number = raw_input("Enter name and number: ").split(',')
-   # place values in dictionary
-   test_record = {'name':test_name,'number':test_number}
-   # insert the record
-   db.insert(test_record)
-   # continue?
-   flag = raw_input('Enter another record? y/N ')
-   if (flag[0].upper() == 'N'):
-      flag = False
+  test_name,test_number = raw_input("Enter name and number: ").split(',')
+  test_record = {'name':test_name,'number':test_number}
+  bulk_test.insert(test_record)
+  flag = raw_input('Enter another record? y/N ')
+  if (flag[0].upper() == 'N'):
+     flag = False
+
+bulk_test.execute()
 
 # find all documents
 results = db.find()
 
 print('')
-print('+-+-+-+-+-+-+-+-+-+-+-+-+-+-')
+print('-----')
 
 # display documents from collection
 for record in results:
 # print out the document
-  print(record['name'] + ',' + record['number'])
+  print(record)
 
 print('')
 
